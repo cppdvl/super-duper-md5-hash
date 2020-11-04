@@ -7,24 +7,22 @@
 #include <iomanip>
 #include <iostream>
 
-namespace GMD5HASH { //Guarin Implementation of MD5.
+#include "gmd5hash.h"
 
-    class HashFile:public std::string {
-        unsigned long mFileSize;
-        static unsigned long get_size_by_fd(int fd) {
+
+        unsigned long GMD5HASH::HashFile::get_size_by_fd(int fd) {
             struct stat statbuf;
             if(fstat(fd, &statbuf) < 0) exit(-1);
             return statbuf.st_size;
         }
-        void format_hash(unsigned char* md){
+        void GMD5HASH::HashFile::format_hash(unsigned char* md){
             for (auto i = 0; i < MD5_DIGEST_LENGTH; ++i){
                 std::stringstream buff;
                 buff << std::setfill('0') << std::setw(2) << std::hex << (unsigned int) md[i];
                 *this += buff.str();
             }
         }
-    public:
-        HashFile(std::string pathname){
+        GMD5HASH::HashFile::HashFile(std::string pathname){
             unsigned char result[MD5_DIGEST_LENGTH];
             int file_descript;
             char* file_buffer;
@@ -39,10 +37,8 @@ namespace GMD5HASH { //Guarin Implementation of MD5.
             this->format_hash(result);
 
         }
-        const unsigned long& FileSize(){
+        const unsigned long& GMD5HASH::HashFile::FileSize(){
             return mFileSize;
         }
-    };
 
 
-}
