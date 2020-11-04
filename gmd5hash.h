@@ -2,8 +2,8 @@
 // Created by root on 11/4/20.
 //
 
-#ifndef GMD5_GDM5HASH_H
-#define GMD5_GDM5HASH_H
+#ifndef GMD5_GMD5HASH_H
+#define GMD5_GMD5HASH_H
 
 #include <string>
 
@@ -23,4 +23,4 @@ namespace GMD5HASH { //Guarin Implementation of MD5.
 
 }
 
-#endif //GMD5_GDM5HASH_H
+#endif //GMD5_GMD5HASH_H
