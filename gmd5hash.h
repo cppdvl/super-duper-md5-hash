@@ -15,9 +15,7 @@ namespace GMD5HASH { //Guarin Implementation of MD5.
         void format_hash(unsigned char* md);
     public:
         HashFile(std::string pathname);
-        const unsigned long& FileSize(){
-            return mFileSize;
-        }
+        const unsigned long& FileSize();
     };
 
 
