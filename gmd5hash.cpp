@@ -1,5 +1,11 @@
 #include <sys/stat.h>
+
+#ifdef _WIN64 || _WIN32
+#include <mman.h>
+#else
 #include <sys/mman.h>
+#endif
+
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string>
